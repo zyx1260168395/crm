@@ -10,10 +10,6 @@ import com.sun.org.apache.regexp.internal.RE;
 public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
-
-        int [][]grid = {{3,0,8,4},{2,4,5,7},{9,2,6,3},{0,3,1,0}};
-        System.out.println(s.maxIncreaseKeepingSkyline(grid));
-
     }
 
     //输入：
@@ -42,39 +38,6 @@ public class Solution {
         return grid[0][0];
     }
 
-
-    //[ [3, 0, 8, 4],
-    //  [2, 4, 5, 7],
-    //  [9, 2, 6, 3],
-    //  [0, 3, 1, 0] ]
-    public int maxIncreaseKeepingSkyline(int[][] grid) {
-        int m = grid.length, n = grid[0].length;
-        int[] mmax = new int[m];
-        int[] nmax = new int[n];
-
-        int res = 0;
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (mmax[i] == 0) {
-                    for (int k = 0; k < m; k++) {
-                        if (grid[i][k] > mmax[i]) {
-                            mmax[i] = grid[i][k];
-                        }
-                    }
-                }
-                if (nmax[j] == 0) {
-                    for (int k = 0; k < n; k++) {
-                        if (grid[k][j] > nmax[j]) {
-                            nmax[j] = grid[k][j];
-                        }
-                    }
-                }
-                res += Math.min(mmax[i], nmax[j]) - grid[i][j];
-            }
-        }
-        return res;
-    }
 }
 
 class NumArray {
@@ -103,4 +66,13 @@ class NumArray {
         }
         return res;
     }
+    public int singleNumber2(int[] nums) {
+        int res = 0;
+        for (int num : nums) {
+            res ^= num;
+        }
+        return res;
+    }
+
+    private  String aaa;
 }
